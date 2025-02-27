@@ -1,5 +1,3 @@
-// content.js
-
 function base32decode(secret) {
     const base32chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
     let bits = "";
@@ -58,8 +56,7 @@ if (!lastSubmissionTime || (currentTime - parseInt(lastSubmissionTime)) > 10000)
     const inputField = document.getElementById("token");
 
     if (inputField) {
-        // Set the flag in local storage
-        localStorage.setItem('submitTime', currentTime.toString()); // Store current time
+        localStorage.setItem('submitTime', currentTime.toString()); // Store current time for debounce
         chrome.runtime.sendMessage({ action: "getStorage" }, async function(response) {
             if (response._bing_2fa_key === undefined) {
                 console.log("2fa Key not set! you must hit the Options page for the extension to set the key!")
@@ -68,7 +65,7 @@ if (!lastSubmissionTime || (currentTime - parseInt(lastSubmissionTime)) > 10000)
             const twoFACode = await totp(response._bing_2fa_key);
             inputField.value = twoFACode;
 
-            // Find the submit button using its class
+            // Find the submit button
             const submitButton = document.querySelector('button.mdc-button[accesskey="s"]');
 
             if (submitButton) {
