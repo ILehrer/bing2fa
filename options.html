@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>bing2fa Options</title>
+</head>
+<body>
+  <h1>bing2fa Settings</h1>
+  <label for="secretInput">2FA Secret:</label><br>
+  <input type="text" id="secretInput"><br><br>
+  <button id="saveButton">Save</button>
+  <p id="message"></p>
+  <p>
+    <strong>Warning:</strong> 
+    Your 2FA secret is stored in plain text and is vulnerable if 
+    your Chrome profile is compromised. Protect your computer and 
+    Chrome profile with strong passwords. (Note: the secret will not sync between 
+    different devices, for security purposes; you will need to manually add it to all 
+    devices you plan to use the extension on.)</p>
+  <script src="options.js"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "bing2fa",
+  "version": "1.0",
+  "description": "Autofill Binghamton University 2fa",
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://cas.cc.binghamton.edu/cas/login?*"],
+      "js": ["content.js"]
+    }
+  ],
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}
