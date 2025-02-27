@@ -4,8 +4,10 @@
   "version": "1.0",
   "description": "Autofill Binghamton University 2fa",
   "permissions": [
-    "activeTab",
     "storage"
+  ],
+  "host_permissions": [
+    "https://cas.cc.binghamton.edu/cas/login?*"
   ],
   "content_scripts": [
     {
