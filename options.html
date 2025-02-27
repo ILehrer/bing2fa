@@ -5,17 +5,22 @@
 </head>
 <body>
   <h1>bing2fa Settings</h1>
+  <p id="existingSecretMessage" style="color: green; display: none;">2FA key is already set. You can reset it below.</p>
+  <p>
+    You can get your 2FA key at <a href="https://password.binghamton.edu/" target="_blank" rel="noopener noreferrer">https://password.binghamton.edu/</a> by clicking the "I know my username / password / one-time-password (OTP) and I want to configure my second factor authentication (2FA)" option.
+  </p>
   <label for="secretInput">2FA Secret:</label><br>
   <input type="text" id="secretInput"><br><br>
   <button id="saveButton">Save</button>
   <p id="message"></p>
   <p>
-    <strong>Warning:</strong> 
-    Your 2FA secret is stored in plain text and is vulnerable if 
-    your Chrome profile is compromised. Protect your computer and 
-    Chrome profile with strong passwords. (Note: the secret will not sync between 
-    different devices, for security purposes; you will need to manually add it to all 
-    devices you plan to use the extension on.)</p>
+    <strong>Warning:</strong>
+    Your 2FA secret is stored in plain text and is vulnerable if
+    your Chrome profile is compromised. Protect your computer and
+    Chrome profile with strong passwords. (Note: the secret will not sync between
+    different devices, for security purposes; you will need to manually add it to all
+    devices you plan to use the extension on.)
+  </p>
   <script src="options.js"></script>
 </body>
 </html>
