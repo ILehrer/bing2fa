@@ -25,7 +25,7 @@ elemObserver("#verify_totp", async (elem) => {
 	const otpKey = keyElem.textContent;
 
 	// Save this key to storage
-	chrome.runtime.sendMessage({action: "setStorage", key: otpKey}, async function(_resp) => {
+	chrome.runtime.sendMessage({action: "setStorage", key: otpKey}, async function(_resp) {
 		// Input the code into the confirmation box
 		const codeInputElem = elem.querySelector("#code");
 		const code = await totp(otpKey);
