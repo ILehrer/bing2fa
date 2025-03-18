@@ -12,7 +12,11 @@
   "content_scripts": [
     {
       "matches": ["https://cas.cc.binghamton.edu/cas/login?*"],
-      "js": ["content.js"]
+      "js": ["totp.js", "content.js"]
+    },
+    {
+      "matches": ["https://password.binghamton.edu/loggedin"],
+      "js": ["totp.js", "set2fa.js"]
     }
   ],
   "options_ui": {
