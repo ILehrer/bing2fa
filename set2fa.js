@@ -13,10 +13,16 @@ const elemObserver = (selector, callback) => {
   });
 };
 
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 elemObserver("#verify_totp", async (elem) => {
 	// Verify OTP modal form exists
 	
-	// Prompt user for whether he wants the extension to use this 2fa key
+	await sleep(1000); // wait for the modal to actually show up
+	
+	// Prompt user for whether they want the extension to use this 2fa key
 	const conf = confirm("would you like bing2fa to autofill 2fa using this key?");
 	if (!conf) return;
 
@@ -29,7 +35,7 @@ elemObserver("#verify_totp", async (elem) => {
 		// Input the code into the confirmation box
 		const codeInputElem = elem.querySelector("#code");
 		const code = await totp(otpKey);
-		codeInputElem.textContent = code;
+		codeInputElem.value = code;
 
 		// We could auto-confirm here, but it's likely a bad idea
 		// in case the user wants to save this to their authenticator as well
